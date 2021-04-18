@@ -1,0 +1,87 @@
+<template>
+  <button
+    @click="disparaAcao()"
+    class="botao"
+    :class="estiloDoBotao"
+    :type="tipo"
+  >
+    {{ rotulo }}
+  </button>
+</template>
+<script>
+export default {
+  props: {
+    tipo: String,
+    rotulo: {
+      required: true,
+      type: String,
+    },
+    confirmacao: Boolean,
+    estilo: String,
+  },
+
+  methods: {
+    disparaAcao() {
+      if (this.confirmacao) {
+        if (confirm("Confirmar operação?")) {
+          this.$emit(
+            "botaoAtivado" /*,"valores para o pai"*/
+          );
+        }
+        return;
+      }
+      this.$emit("botaoAtivado");
+    },
+  },
+
+  computed: {
+    estiloDoBotao() {
+      if (this.estilo == "padrao") return "botao-padrao";
+      if (this.estilo == "transparente")
+        return "botao-trans";
+      if (this.estilo == "envia") return "botao-envia";
+      if (this.estilo == "volta") return "botao-volta";
+      else return "botao-padrao";
+    },
+  },
+};
+</script>
+
+<style scoped>
+.botao {
+  display: inline-block;
+}
+.botao-trans {
+  background-color: #ffffff00;
+  font-size: 18px;
+  padding: 20px;
+  box-shadow: none;
+  border-style: none;
+  color: aliceblue;
+  text-align: center;
+  height: 100%;
+  min-width: 80px;
+}
+.botao-trans:hover {
+  background-color: rgba(0, 0, 0, 0.082);
+  border-style: none;
+}
+
+.botao-trans:focus {
+  box-shadow: 0 0 0 0;
+  outline: 0;
+}
+
+.botao-envia {
+  width: 100px;
+  height: 60px;
+  font-size: 18px;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: none;
+  border-style: none;
+  color: aliceblue;
+  text-align: center;
+  background-color: green;
+}
+</style>
