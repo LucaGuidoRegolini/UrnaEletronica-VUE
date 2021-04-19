@@ -6,7 +6,7 @@
       :photo="candidato.url"
       :name="candidato.name"
       :numero="candidato.votos"
-      :partido="calcula(candidato.votos, 5)"
+      :partido="calcula(candidato.votos)"
       txt_numero="Votos: "
       txt_partido="Total: "
     >
@@ -19,6 +19,7 @@
 
 <script>
 import CandidateStorege from "../classes/CandidateStorege";
+import VotationStorege from "../classes/VotationStorege";
 import Painel from "../components/Painel";
 import Warning from "../components/Warning";
 export default {
@@ -34,14 +35,13 @@ export default {
   created() {
     this.candidates = new CandidateStorege("candidates");
     this.candidatos = this.candidates.getAll("candidates");
-    this.votation = new CandidateStorege("votation");
-    this.votation.set("votation", "total", 0);
-    this.votation.set("votation", "nulo", 0);
-    this.votation.set("votation", "branco", 0);
+    this.votation = new VotationStorege("votation");
   },
   methods: {
-    calcula(votos, total) {
-      return (votos / total) * 100 + "%";
+    calcula(votos) {
+      let total = this.votation.get("votation").total;
+      if (total === 0) return "0%";
+      else return (votos / total) * 100 + "%";
     },
   },
 };

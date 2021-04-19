@@ -1,7 +1,7 @@
 <template>
   <div class="contend">
     <h1 class="titulo">
-      Parece que você ainda não criou nenhum candidadto 😞
+      Parece que você ainda não criou nenhum candidato 😞
     </h1>
     <p class="conteudo">
       Quer criar um agora?<br />
@@ -41,8 +41,8 @@ export default {
   color: white;
 }
 
-.conteudo{
-    font-size: 21px;
-    margin-bottom: 0px;
+.conteudo {
+  font-size: 21px;
+  margin-bottom: 0px;
 }
 </style>

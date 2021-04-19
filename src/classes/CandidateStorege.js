@@ -24,4 +24,12 @@ export default class CandidateStorege {
     localStorage.setItem(key, JSON.stringify(objs));
     return resp;
   }
+  vote(key, prop) {
+    const obj = JSON.parse(localStorage[key]);
+    if (obj[prop]) {
+      obj[prop].votos += 1;
+      localStorage.setItem(key, JSON.stringify(obj));
+      return true;
+    } else return false;
+  }
 }

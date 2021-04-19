@@ -7,8 +7,8 @@
       :name="candidato.name"
       :numero="candidato.numero"
       :partido="candidato.partido"
-      txt_numero= "Numero: "
-      txt_partido= "Partido: "
+      txt_numero="Numero: "
+      txt_partido="Partido: "
     >
       <Button
         class="button"
