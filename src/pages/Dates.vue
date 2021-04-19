@@ -5,19 +5,11 @@
       :key="candidato"
       :photo="candidato.url"
       :name="candidato.name"
-      :numero="candidato.numero"
-      :partido="candidato.partido"
-      txt_numero= "Numero: "
-      txt_partido= "Partido: "
+      :numero="candidato.votos"
+      :partido="calcula(candidato.votos, 5)"
+      txt_numero="Votos: "
+      txt_partido="Total: "
     >
-      <Button
-        class="button"
-        rotulo="Deletar"
-        :confirmacao="true"
-        estilo="excluir"
-        menssage="Tem certeza que quer deletar esse candidadto"
-        @botaoAtivado="deleted(candidato)"
-      />
     </Painel>
   </div>
   <div class="contend" v-else>
@@ -28,12 +20,10 @@
 <script>
 import CandidateStorege from "../classes/CandidateStorege";
 import Painel from "../components/Painel";
-import Button from "../components/Button";
 import Warning from "../components/Warning";
 export default {
   components: {
     Painel,
-    Button,
     Warning,
   },
   data() {
@@ -43,17 +33,15 @@ export default {
   },
   created() {
     this.candidates = new CandidateStorege("candidates");
-    let candidates = this.candidates.getAll("candidates");
-    this.candidatos = candidates;
+    this.candidatos = this.candidates.getAll("candidates");
+    this.votation = new CandidateStorege("votation");
+    this.votation.set("votation", "total", 0);
+    this.votation.set("votation", "nulo", 0);
+    this.votation.set("votation", "branco", 0);
   },
   methods: {
-    deleted(candidato) {
-      this.candidates.delete(
-        "candidates",
-        candidato.numero
-      );
-      let indice = this.candidatos.indexOf(candidato);
-      this.candidatos.splice(indice, 1);
+    calcula(votos, total) {
+      return (votos / total) * 100 + "%";
     },
   },
 };

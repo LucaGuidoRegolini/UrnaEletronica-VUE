@@ -13,9 +13,10 @@ export default class CandidateStorege {
     const obj = JSON.parse(localStorage[key]);
     if (obj[name]) {
       throw new URIError("propriedade ja existente");
+    } else {
+      obj[name] = data;
+      localStorage.setItem(key, JSON.stringify(obj));
     }
-    obj[name] = data;
-    localStorage.setItem(key, JSON.stringify(obj));
   }
   delete(key, prop) {
     const objs = JSON.parse(localStorage[key]);

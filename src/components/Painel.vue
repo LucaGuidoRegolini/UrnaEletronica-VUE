@@ -2,8 +2,8 @@
   <div class="card">
     <img :src="photo" alt="" class="photo" />
     <h1 class="titulo">{{ name }}</h1>
-    <h3 class="info numero">Numero: {{ numero }}</h3>
-    <h3 class="info partido">Partito: {{ partido }}</h3>
+    <h3 class="info numero">{{txt_numero}}{{ numero }}</h3>
+    <h3 class="info partido">{{txt_partido}}{{ partido }}</h3>
     <slot />
   </div>
 </template>
@@ -27,6 +27,14 @@ export default {
       type: String,
       require: true,
     },
+    txt_numero:{
+      type: String,
+      require: true,
+    },
+    txt_partido: {
+      type: String,
+      require: true,
+    }
   },
   methods: {
     persist() {
@@ -52,8 +60,9 @@ export default {
   margin: 10px;
 }
 .photo {
-  margin-top: 25px;
+  margin-top: 15px;
   width: 120px;
+  height: 100px;
   border: solid 2px rgb(0, 0, 0);
   border-radius: 70px;
 }

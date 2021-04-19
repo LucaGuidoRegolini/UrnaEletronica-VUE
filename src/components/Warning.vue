@@ -26,10 +26,7 @@ export default {
 * {
   margin: auto;
 }
-.titulo,
-.conteudo {
-  color: white;
-}
+
 .contend {
   width: 300px;
   height: 400px;
@@ -38,5 +35,14 @@ export default {
   border-radius: 20px;
   display: inline-block;
   margin: 10px;
+}
+.titulo,
+.conteudo {
+  color: white;
+}
+
+.conteudo{
+    font-size: 21px;
+    margin-bottom: 0px;
 }
 </style>
