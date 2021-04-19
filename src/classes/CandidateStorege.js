@@ -1,11 +1,13 @@
-/* eslint-disable no-unused-vars */
 export default class CandidateStorege {
   constructor(key) {
     if (!localStorage[key])
       localStorage.setItem(key, JSON.stringify({}));
   }
   getAll(key) {
-    console.log(JSON.parse(localStorage.getItem(key)));
+    const objs = JSON.parse(localStorage[key]);
+    let array = [];
+    for (let props in objs) array.push(objs[props]);
+    return array;
   }
   set(key, name, data) {
     const obj = JSON.parse(localStorage[key]);
@@ -14,5 +16,11 @@ export default class CandidateStorege {
     }
     obj[name] = data;
     localStorage.setItem(key, JSON.stringify(obj));
+  }
+  delete(key, prop) {
+    const objs = JSON.parse(localStorage[key]);
+    let resp = delete objs[prop];
+    localStorage.setItem(key, JSON.stringify(objs));
+    return resp;
   }
 }

@@ -4,6 +4,7 @@
     <h1 class="titulo">{{ name }}</h1>
     <h3 class="info numero">Numero: {{ numero }}</h3>
     <h3 class="info partido">Partito: {{ partido }}</h3>
+    <slot />
   </div>
 </template>
 

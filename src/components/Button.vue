@@ -17,13 +17,14 @@ export default {
       type: String,
     },
     confirmacao: Boolean,
+    menssage: String,
     estilo: String,
   },
 
   methods: {
     disparaAcao() {
       if (this.confirmacao) {
-        if (confirm("Confirmar operação?")) {
+        if (confirm(this.menssage)) {
           this.$emit(
             "botaoAtivado" /*,"valores para o pai"*/
           );
@@ -40,7 +41,7 @@ export default {
       if (this.estilo == "transparente")
         return "botao-trans";
       if (this.estilo == "envia") return "botao-envia";
-      if (this.estilo == "volta") return "botao-volta";
+      if (this.estilo == "excluir") return "botao-excluir";
       else return "botao-padrao";
     },
   },
@@ -83,5 +84,17 @@ export default {
   color: aliceblue;
   text-align: center;
   background-color: green;
+}
+.botao-excluir {
+  width: 100px;
+  height: 60px;
+  font-size: 18px;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: none;
+  border-style: none;
+  color: aliceblue;
+  text-align: center;
+  background-color: red;
 }
 </style>

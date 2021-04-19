@@ -51,8 +51,7 @@ export default {
   },
   data() {
     return {
-      imagem:
-        "http://192.168.15.141:8080/img/padrao.cb23a20f.jpg",
+      imagem: this.$baseUrl + "img/padrao.cb23a20f.jpg",
       inputImg: "",
       candidate: new Candidate(),
     };
@@ -63,13 +62,13 @@ export default {
         this.imagem = this.inputImg;
       } else {
         this.imagem =
-          "http://192.168.15.141:8080/img/padrao.cb23a20f.jpg";
+          this.$baseUrl + "img/padrao.cb23a20f.jpg";
       }
     },
     erroImg() {
       alert("Url da imagem invalida");
       this.imagem =
-        "http://192.168.15.141:8080/img/padrao.cb23a20f.jpg";
+        this.$baseUrl + "img/padrao.cb23a20f.jpg";
     },
     grava() {
       if (this.candidate.numero && this.candidate.name) {
@@ -83,8 +82,12 @@ export default {
             this.candidate.numero,
             this.candidate
           );
+          this.candidates.getAll("candidates");
           this.candidate = new Candidate();
           this.inputImg = "";
+          this.imagem =
+            this.$baseUrl + "img/padrao.cb23a20f.jpg";
+          alert("Candidato registrado");
         } catch {
           alert("Numero repetido");
         }
