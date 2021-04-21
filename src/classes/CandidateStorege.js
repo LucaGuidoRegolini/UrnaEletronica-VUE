@@ -1,3 +1,7 @@
+/* eslint-disable no-unused-vars */
+import Candidate from "./Candidate";
+import VotationStorege from "./VotationStorege";
+const votationStorege = new VotationStorege("votation");
 export default class CandidateStorege {
   constructor(key) {
     if (!localStorage[key])
@@ -8,6 +12,12 @@ export default class CandidateStorege {
     let array = [];
     for (let props in objs) array.push(objs[props]);
     return array;
+  }
+  get(key, num) {
+    const objs = JSON.parse(localStorage[key]);
+    if (objs[num]) {
+      return objs[num];
+    } else return new Candidate("nulo", "", "nulo", "0");
   }
   set(key, name, data) {
     const obj = JSON.parse(localStorage[key]);
@@ -29,7 +39,12 @@ export default class CandidateStorege {
     if (obj[prop]) {
       obj[prop].votos += 1;
       localStorage.setItem(key, JSON.stringify(obj));
+      votationStorege.vota("votation");
       return true;
-    } else return false;
+    } else {
+      votationStorege.vota("votation");
+      votationStorege.nullo("votation");
+      return false;
+    }
   }
 }

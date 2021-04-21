@@ -11,6 +11,24 @@
       txt_partido="Total: "
     >
     </Painel>
+    <Painel
+      :photo="this.$baseUrl + 'img/padrao.cb23a20f.jpg'"
+      name="Nullo"
+      :numero="vota.nulo"
+      :partido="calcula(vota.nulo)"
+      txt_numero="Votos: "
+      txt_partido="Total: "
+    >
+    </Painel>
+    <Painel
+      :photo="this.$baseUrl + 'img/padrao.cb23a20f.jpg'"
+      name="Branco"
+      :numero="vota.branco"
+      :partido="calcula(vota.branco)"
+      txt_numero="Votos: "
+      txt_partido="Total: "
+    >
+    </Painel>
   </div>
   <div class="contend" v-else>
     <Warning />
@@ -36,12 +54,14 @@ export default {
     this.candidates = new CandidateStorege("candidates");
     this.candidatos = this.candidates.getAll("candidates");
     this.votation = new VotationStorege("votation");
+    this.vota = this.votation.get("votation");
+    console.log(this.vota);
   },
   methods: {
     calcula(votos) {
       let total = this.votation.get("votation").total;
       if (total === 0) return "0%";
-      else return (votos / total) * 100 + "%";
+      else return ((votos / total) * 100).toFixed(1) + "%";
     },
   },
 };

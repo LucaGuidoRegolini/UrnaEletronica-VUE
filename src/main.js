@@ -7,7 +7,7 @@ import { routes } from "./routes";
 
 Vue.use(VueRouter);
 Vue.config.productionTip = false;
-Vue.config.silent = false;
+Vue.config.silent = true;
 Vue.prototype.$baseUrl = "http://localhost:8080/";
 const router = new VueRouter({
   routes,

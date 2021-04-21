@@ -38,10 +38,18 @@ export default {
   computed: {
     estiloDoBotao() {
       if (this.estilo == "padrao") return "botao-padrao";
-      if (this.estilo == "transparente")
+      else if (this.estilo == "transparente")
         return "botao-trans";
-      if (this.estilo == "envia") return "botao-envia";
-      if (this.estilo == "excluir") return "botao-excluir";
+      else if (this.estilo == "envia") return "botao-envia";
+      else if (this.estilo == "excluir")
+        return "botao-excluir";
+      else if (this.estilo == "tecla") return "botao-tecla";
+      else if (this.estilo == "confirma")
+        return "botao-confirma";
+      else if (this.estilo == "corrige")
+        return "botao-corrige";
+      else if (this.estilo == "branco")
+        return "botao-branco";
       else return "botao-padrao";
     },
   },
@@ -96,5 +104,50 @@ export default {
   color: aliceblue;
   text-align: center;
   background-color: red;
+}
+.botao-tecla {
+  margin: 10px;
+  background-color: black;
+  color: snow;
+  border-radius: 5px;
+  height: 40px;
+  width: 70px;
+}
+.botao-confirma {
+  width: 85px;
+  height: 60px;
+  font-size: 15px;
+  padding: 10px;
+  border-radius: 20px;
+  box-shadow: none;
+  border-style: none;
+  color: aliceblue;
+  text-align: center;
+  background-color: green;
+}
+.botao-corrige {
+  width: 85px;
+  height: 60px;
+  font-size: 15px;
+  padding: 10px;
+  border-radius: 20px;
+  box-shadow: none;
+  border-style: none;
+  color: aliceblue;
+  text-align: center;
+  background-color: rgb(173, 173, 2);
+}
+.botao-branco {
+  width: 85px;
+  height: 60px;
+  font-size: 15px;
+  padding: 10px;
+  border-radius: 20px;
+  box-shadow: none;
+  border-style: none;
+  color: black;
+  text-align: center;
+  background-color: white;
+  border: solid 1px rgb(0, 0, 0);
 }
 </style>
