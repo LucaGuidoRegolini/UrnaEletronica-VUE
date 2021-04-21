@@ -6,7 +6,7 @@ import Eleition from "./pages/Eleition.vue";
 import Add from "./pages/Add.vue"
 
 export const routes = [
-  { name: "home", titulo: "Home", path: "/", component: Home},
+  { name: "home", titulo: "Home", path: "/", component: Candidates},
   { name: "candidates", titulo: "Candidatos", path: "/candidates", component: Candidates, menu: true },
   { name: "data", titulo: "Dados", path: "/data", component: Dates,  menu: true},
   { name: "eleiction", titulo: "Eleição", path: "/eleiction", component: Eleition,  menu: true},
