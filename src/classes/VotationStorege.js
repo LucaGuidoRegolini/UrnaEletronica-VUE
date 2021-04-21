@@ -28,4 +28,9 @@ export default class VotationStorege {
     obj.branco += 1;
     localStorage.setItem(key, JSON.stringify(obj));
   }
+  delete(key, num) {
+    const obj = JSON.parse(localStorage[key]);
+    obj.total -= num;
+    localStorage.setItem(key, JSON.stringify(obj));
+  }
 }

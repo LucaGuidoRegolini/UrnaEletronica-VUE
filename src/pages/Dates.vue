@@ -55,7 +55,6 @@ export default {
     this.candidatos = this.candidates.getAll("candidates");
     this.votation = new VotationStorege("votation");
     this.vota = this.votation.get("votation");
-    console.log(this.vota);
   },
   methods: {
     calcula(votos) {

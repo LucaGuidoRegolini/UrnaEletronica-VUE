@@ -40,16 +40,6 @@ export default {
       require: true,
     },
   },
-  methods: {
-    persist() {
-      localStorage.name = JSON.stringify({
-        name: this.name,
-        nome: this.name,
-        teme: this.name,
-      });
-      console.log(localStorage.name);
-    },
-  },
 };
 </script>
 

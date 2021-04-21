@@ -30,6 +30,7 @@ export default class CandidateStorege {
   }
   delete(key, prop) {
     const objs = JSON.parse(localStorage[key]);
+    votationStorege.delete("votation", objs[prop].votos);
     let resp = delete objs[prop];
     localStorage.setItem(key, JSON.stringify(objs));
     return resp;
