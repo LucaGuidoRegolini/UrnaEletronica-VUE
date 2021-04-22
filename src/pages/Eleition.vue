@@ -128,9 +128,12 @@ export default {
   max-width: 750px;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   margin: auto;
+}
+.box + .form, .teclado{
+  margin-left: 25px;
 }
 .form {
   width: 310px;
