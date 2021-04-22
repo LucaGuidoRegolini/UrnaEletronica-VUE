@@ -127,6 +127,7 @@ export default {
   display: flex;
   max-width: 750px;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   margin: auto;
