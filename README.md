@@ -1,4 +1,4 @@
-# Urna Eletronica
+# Urna Eletrônica
 
 Website feito em **Vue.js** capaz de armazenar informações de candidatos no **localStorege** do navegador, o website conta com a função de criar, votar e deletar candidatos para a eleição, o projeto foi feito para colocar em pratica conhecimentos de programação do framework **Vue.js**, espero que gostem.
 
